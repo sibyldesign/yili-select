@@ -29,7 +29,7 @@
     <div class="flex flex-col sm:flex-row justify-between items-center border-b border-border-soft pb-4 mb-6">
       <div class="text-center sm:text-left">
         <h1 class="text-2xl font-bold tracking-wider text-text-dark">伊利小編購 智慧管理後台</h1>
-        <p class="text-xs text-primary-taupe mt-1">2026 高階無規矩陣平鋪式自動化公版</p>
+        <p class="text-xs text-primary-taupe mt-1">2026 行動化公版 (無 JSON 規格防破圖設計)</p>
       </div>
       <a id="viewStoreLink" href="#" target="_blank" class="mt-3 sm:mt-0 bg-primary-taupe text-white text-xs font-medium px-4 py-2.5 rounded-lg shadow-sm hover:bg-taupe-dark transition-all">🌐 前往官方前台行動商城</a>
     </div>
@@ -40,16 +40,16 @@
     </div>
 
     <div id="uploadTab" class="tab-content bg-white border border-border-soft rounded-xl p-5 sm:p-6 shadow-sm space-y-4">
-      <h2 class="text-sm font-bold border-b border-border-soft pb-2 text-stone-700">✍️ 上架新商品 (免填任何繁瑣 JSON，直連雲端 15 欄位)</h2>
+      <h2 class="text-sm font-bold border-b border-border-soft pb-2 text-stone-700">✍️ 上架新商品 (品名、特價為必填)</h2>
       
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div>
           <label class="text-xs font-semibold text-stone-600 block mb-1">商品貨號 (選填)</label>
-          <input type="text" id="pSku" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50 outline-none focus:bg-white" placeholder="例如：A01">
+          <input type="text" id="pSku" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50 outline-none" placeholder="例如：A01">
         </div>
         <div class="sm:col-span-2">
           <label class="text-xs font-semibold text-stone-600 block mb-1">商品品名 <span class="text-red-500">(必填)</span></label>
-          <input type="text" id="pName" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50 outline-none focus:bg-white" placeholder="例如：正韓高腰顯瘦不規則長裙">
+          <input type="text" id="pName" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50 outline-none" placeholder="例如：韓系休閒口袋寬鬆上衣">
         </div>
       </div>
 
@@ -71,76 +71,73 @@
         </div>
         <div>
           <label class="text-xs font-semibold text-stone-600 block mb-1">特色標籤 (選填)</label>
-          <input type="text" id="pTag" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="例如：熱銷現貨">
+          <input type="text" id="pTag" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="如：熱銷現貨">
         </div>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label class="text-xs font-semibold text-stone-600 block mb-1">顏色清單 (純文字，中英逗號隔開)</label>
-          <input type="text" id="pColors" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="例如：杏色,燕麥色,霧黑">
+          <label class="text-xs font-semibold text-stone-600 block mb-1">顏色清單 (用英文或中文逗號隔開)</label>
+          <input type="text" id="pColors" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="例如：黑色,白色,卡其">
         </div>
         <div>
-          <label class="text-xs font-semibold text-stone-600 block mb-1">尺碼清單 (純文字，中英逗號隔開)</label>
-          <input type="text" id="pSizes" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="例如：S,M,L,均碼">
+          <label class="text-xs font-semibold text-stone-600 block mb-1">尺碼清單 (用英文或中文逗號隔開)</label>
+          <input type="text" id="pSizes" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="例如：M,L,均碼">
         </div>
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
         <div>
           <label class="text-xs font-semibold text-stone-600 block mb-1">原價 (選填)</label>
-          <input type="text" id="pOldPrice" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="例如：1280">
+          <input type="text" id="pOldPrice" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="例如：590">
         </div>
         <div>
-          <label class="text-xs font-semibold text-stone-600 block mb-1">特價結帳單價 <span class="text-red-500">(必填)</span></label>
-          <input type="number" id="pPrice" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="例如：890">
+          <label class="text-xs font-semibold text-stone-600 block mb-1">特價單價 <span class="text-red-500">(必填)</span></label>
+          <input type="number" id="pPrice" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="例如：390">
         </div>
         <div>
           <label class="text-xs font-semibold text-stone-600 block mb-1">加購品名稱 (選填)</label>
-          <input type="text" id="pAddonName" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="例如：質感保溫杯">
+          <input type="text" id="pAddonName" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="例如：隨身小鏡子">
         </div>
         <div>
-          <label class="text-xs font-semibold text-stone-600 block mb-1">加購品加價金額 (選填)</label>
-          <input type="number" id="pAddonPrice" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="例如：99">
+          <label class="text-xs font-semibold text-stone-600 block mb-1">加購品加價 (選填)</label>
+          <input type="number" id="pAddonPrice" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="例如：49">
         </div>
       </div>
 
       <div>
-        <label class="text-xs font-semibold text-stone-600 block mb-1">商品描述網頁長網址或空格多圖網址紀錄欄</label>
-        <textarea id="pImgs" rows="3" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50 outline-none" placeholder="可直接貼上圖片短網址。保留了原本附檔的多張圖片空格加速加速功能，用空格格開即可。"></textarea>
+        <label class="text-xs font-semibold text-stone-600 block mb-1">圖片網址欄位 (支援多張圖片空格格開)</label>
+        <textarea id="pImgs" rows="3" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50 outline-none" placeholder="輸入圖片網址..."></textarea>
       </div>
 
       <div>
-        <label class="text-xs font-semibold text-stone-600 block mb-1">短文敘述說明</label>
-        <textarea id="pDesc" rows="2" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50 outline-none" placeholder="衣服特點細節補充..."></textarea>
+        <label class="text-xs font-semibold text-stone-600 block mb-1">商品敘述</label>
+        <textarea id="pDesc" rows="2" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50 outline-none" placeholder="描述細節..."></textarea>
       </div>
 
-      <button onclick="publishProduct()" class="w-full bg-primary-taupe text-white font-medium text-sm py-3 rounded-lg hover:bg-taupe-dark transition-all shadow-md active:scale-[0.99]">一鍵即時同步發佈至前台行動商城</button>
+      <button onclick="publishProduct()" class="w-full bg-primary-taupe text-white font-medium text-sm py-3 rounded-lg hover:bg-taupe-dark transition-all">一鍵即時同步商品網頁上架</button>
     </div>
 
     <div id="orderTab" class="tab-content bg-white border border-border-soft rounded-xl p-5 shadow-sm space-y-4 hidden">
       <div class="flex justify-between items-center flex-wrap gap-2">
-        <h2 class="text-sm font-bold text-stone-700">📋 即時預約取貨訂單明細流水看板</h2>
-        <button onclick="loadAllOrders()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs px-3 py-1.5 rounded-md border border-stone-300 font-medium transition-all">🔄 刷新最新訂單</button>
+        <h2 class="text-sm font-bold text-stone-700">📋 即時預約取貨訂單看板</h2>
+        <button onclick="loadAllOrders()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs px-3 py-1.5 rounded-md border border-stone-300 transition-all">🔄 刷新最新訂單</button>
       </div>
-
       <div class="overflow-x-auto border border-border-soft rounded-lg">
         <table class="w-full text-left text-xs border-collapse">
           <thead>
-            <tr class="bg-stone-50 text-stone-600 uppercase border-b border-border-soft">
+            <tr class="bg-stone-50 text-stone-600 border-b border-border-soft">
               <th class="p-3">下單時間</th>
               <th class="p-3">訂單編號</th>
               <th class="p-3">訂購客戶</th>
-              <th class="p-3">商品品名規格</th>
+              <th class="p-3">品名規格</th>
               <th class="p-3">數量金額</th>
-              <th class="p-3">🚚 預計到貨櫃市集時間</th>
+              <th class="p-3">⏱️ 預計取貨時間</th>
               <th class="p-3">狀態</th>
             </tr>
           </thead>
           <tbody id="orderTableBody" class="divide-y divide-border-soft text-stone-700">
-            <tr>
-              <td colspan="7" class="text-center p-6 text-stone-400">尚無新進預約紀錄，請點選上方按鈕刷新。</td>
-            </tr>
+            <tr><td colspan="7" class="text-center p-6 text-stone-400">請刷新訂單資料。</td></tr>
           </tbody>
         </table>
       </div>
@@ -156,18 +153,18 @@
 
   <script>
     window.onload = function() {
-      // 載入後端 CONFIG
-      google.script.run.withSuccessHandler(function(data) {
-        document.getElementById('viewStoreLink').href = window.location.href.replace('userKey','').split('?')[0];
-        
-        // 渲染下拉配置
-        const majEl = document.getElementById('pMajorSelect');
-        const subEl = document.getElementById('pSubSelect');
-        majEl.innerHTML = ""; subEl.innerHTML = "";
-        
-        data.majorCategories.forEach(c => { let o = document.createElement('option'); o.value=o.text=c; majEl.appendChild(o); });
-        data.subCategories.forEach(c => { let o = document.createElement('option'); o.value=o.text=c; subEl.appendChild(o); });
-      }).getStoreData();
+      if (typeof google !== 'undefined') {
+        google.script.run.withSuccessHandler(function(data) {
+          if (!data || !data.success) {
+            alert("❌ 連線錯誤：請檢查試算表 ID 與共用檢視權限！"); return;
+          }
+          const majEl = document.getElementById('pMajorSelect');
+          const subEl = document.getElementById('pSubSelect');
+          majEl.innerHTML = ""; subEl.innerHTML = "";
+          data.majorCategories.forEach(c => { let o = document.createElement('option'); o.value=o.text=c; majEl.appendChild(o); });
+          data.subCategories.forEach(c => { let o = document.createElement('option'); o.value=o.text=c; subEl.appendChild(o); });
+        }).getStoreData();
+      }
     };
 
     function switchTab(id) {
@@ -187,39 +184,28 @@
 
       const pObj = {
         sku: document.getElementById('pSku').value.trim() || ("SKU-" + Date.now().toString().slice(-4)),
-        name: name,
-        status: document.getElementById('pStatus').value,
-        major: document.getElementById('pMajorSelect').value,
-        sub: document.getElementById('pSubSelect').value,
-        tag: document.getElementById('pTag').value.trim(),
-        desc: document.getElementById('pDesc').value.trim(),
-        video: "",
-        imgs: document.getElementById('pImgs').value.trim(),
-        oldPrice: document.getElementById('pOldPrice').value,
-        price: Number(price),
-        color: document.getElementById('pColors').value.trim(),
-        size: document.getElementById('pSizes').value.trim(),
-        addonName: document.getElementById('pAddonName').value.trim(),
-        addonPrice: Number(document.getElementById('pAddonPrice').value || 0)
+        name: name, status: document.getElementById('pStatus').value,
+        major: document.getElementById('pMajorSelect').value, sub: document.getElementById('pSubSelect').value,
+        tag: document.getElementById('pTag').value.trim(), desc: document.getElementById('pDesc').value.trim(),
+        video: "", imgs: document.getElementById('pImgs').value.trim(), oldPrice: document.getElementById('pOldPrice').value,
+        price: Number(price), color: document.getElementById('pColors').value.trim(), size: document.getElementById('pSizes').value.trim(),
+        addonName: document.getElementById('pAddonName').value.trim(), addonPrice: Number(document.getElementById('pAddonPrice').value || 0)
       };
 
-      alert("⏳ 正將純文字數據無縫同步更新至試算表中...");
       google.script.run.withSuccessHandler(function(res) {
         alert(res.message);
         if(res.success) {
-          document.getElementById('pName').value = "";
-          document.getElementById('pPrice').value = "";
+          document.getElementById('pName').value = ""; document.getElementById('pPrice').value = "";
         }
       }).addNewProduct(pObj);
     }
 
     function loadAllOrders() {
       const tbody = document.getElementById('orderTableBody');
-      tbody.innerHTML = "<tr><td colspan='7' class='text-center p-4 text-stone-400 animate-pulse'>正在實時拉取試算表資料明細...</td></tr>";
+      tbody.innerHTML = "<tr><td colspan='7' class='text-center p-4 text-stone-400 animate-pulse'>資料同步讀取中...</td></tr>";
       google.script.run.withSuccessHandler(function(res) {
         if(!res.success || res.orders.length === 0) {
-          tbody.innerHTML = "<tr><td colspan='7' class='text-center p-4 text-stone-400'>目前無任何客戶下單預約紀錄。</td></tr>";
-          return;
+          tbody.innerHTML = "<tr><td colspan='7' class='text-center p-4 text-stone-400'>目前無任何訂單紀錄。</td></tr>"; return;
         }
         tbody.innerHTML = "";
         res.orders.forEach(o => {
@@ -227,8 +213,8 @@
             <tr class="hover:bg-stone-50">
               <td class="p-3 font-mono text-[11px] text-stone-500">${o.time}</td>
               <td class="p-3 font-bold">${o.orderId}</td>
-              <td class="p-3"><b>${o.custName}</b><br><span class="text-stone-400">Tel: ${o.phone}</span></td>
-              <td class="p-3">[${o.sku}] ${o.prodName}<br><span class="text-primary-taupe text-[11px]">${o.color} / ${o.size}</span></td>
+              <td class="p-3"><b>${o.custName}</b><br><span class="text-stone-400">${o.phone}</span></td>
+              <td class="p-3">${o.prodName}<br><span class="text-primary-taupe text-[11px]">${o.color} / ${o.size}</span></td>
               <td class="p-3"><b>${o.qty} 件</b><br><span class="text-stone-500 font-semibold">$${o.total}</span></td>
               <td class="p-3"><span class="bg-amber-50 text-amber-800 border border-amber-200 px-2 py-1 rounded text-[11px] font-medium">${o.pickupTime}</span></td>
               <td class="p-3"><span class="px-2 py-0.5 bg-green-100 text-green-800 rounded-full text-[10px] font-bold">${o.status}</span></td>
