@@ -32,22 +32,26 @@
 </head>
 <body class="font-sans antialiased pb-24">
 
+  <!-- 右上角：LINE 客服 與 加入 LINE 社群 -->
   <div class="w-full flex justify-end gap-2 px-4 pt-4 pb-2 z-50">
-    <a id="lineLink" href="https://lin.ee/925zrjur" target="_blank" class="bg-white border border-border-soft text-[11px] font-medium px-3 py-1.5 rounded-full shadow-sm hover:bg-warm-taupe hover:text-white transition-all">LINE 客服</a>
-    <a id="igLink" href="https://line.me/ti/g2/LOmembwBbeqIpXoFcYG6yX8pCGrIvkPbnNpIig?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" class="bg-white border border-border-soft text-[11px] font-medium px-3 py-1.5 rounded-full shadow-sm hover:bg-warm-taupe hover:text-white transition-all">社群交流圈</a>
+    <a href="https://lin.ee/925zrjur" target="_blank" class="bg-white border border-border-soft text-[11px] font-medium px-3 py-1.5 rounded-full shadow-sm hover:bg-warm-taupe hover:text-white transition-all">LINE 客服</a>
+    <a href="https://line.me/ti/g2/LOmembwBbeqIpXoFcYG6yX8pCGrIvkPbnNpIig?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" class="bg-white border border-border-soft text-[11px] font-medium px-3 py-1.5 rounded-full shadow-sm hover:bg-warm-taupe hover:text-white transition-all">加入 LINE 社群</a>
   </div>
 
+  <!-- 品牌 LOGO 區：精準控制大小為 35 (140px) -->
   <div class="flex flex-col items-center text-center px-4 py-4">
-    <div class="w-28 h-28 rounded-full border-2 border-border-soft shadow-md overflow-hidden bg-white mb-3">
-      <img id="logoImg" src="https://i.postimg.cc/x887dL6Q/line-oa-chat-260617-163106.jpg" class="w-full h-full object-cover" alt="Store Logo">
+    <div class="w-[140px] h-[140px] rounded-full border-2 border-border-soft shadow-md overflow-hidden bg-white mb-3">
+      <img src="https://i.postimg.cc/x887dL6Q/line-oa-chat-260617-163106.jpg" class="w-full h-full object-cover" alt="Store Logo">
     </div>
-    <h1 id="storeTitle" class="text-xl font-bold tracking-[3px] text-carbon-black uppercase">伊利小編購</h1>
+    <h1 class="text-xl font-bold tracking-[3px] text-carbon-black uppercase">伊利小編購</h1>
   </div>
 
+  <!-- 跑馬燈公告區 -->
   <div class="mx-4 my-2 bg-white border border-border-soft rounded-xl p-3.5 text-xs text-center leading-relaxed shadow-sm text-stone-600" id="announcementText">
-    正在極速同步讀取雲端公告資訊...
+    同步雲端動態公告連線中...
   </div>
 
+  <!-- 搜尋與查詢 -->
   <div class="px-4 py-2 space-y-2">
     <div class="bg-white border border-border-soft rounded-xl p-1.5 flex items-center shadow-sm">
       <input type="text" id="searchInput" class="bg-transparent pl-3 pr-2 py-2 text-xs outline-none flex-1 text-carbon-black" placeholder="輸入關鍵字搜尋...">
@@ -56,24 +60,24 @@
     </div>
 
     <div id="queryPanel" class="bg-white border border-border-soft rounded-xl p-4 shadow-md hidden">
-      <div class="flex justify-between items-center mb-2.5">
-        <h4 class="text-xs font-bold text-carbon-black">手機實時查單</h4>
-        <span onclick="toggleQueryPanel()" class="text-stone-400 font-bold text-lg cursor-pointer p-1">×</span>
-      </div>
+      <h4 class="text-xs font-bold text-carbon-black mb-2">手機實時查單</h4>
       <input type="text" id="orderQueryInput" class="w-full text-xs p-2.5 border border-border-soft rounded-lg bg-stone-50 outline-none mb-2" placeholder="請輸入訂購人手機號碼">
       <button onclick="fetchOrderProgress()" class="w-full bg-warm-taupe text-white text-xs font-medium py-2.5 rounded-lg">送出查詢</button>
       <div id="queryResult" class="mt-3 space-y-2 max-h-40 overflow-y-auto"></div>
     </div>
   </div>
 
+  <!-- 分類滑塊 -->
   <div class="overflow-x-auto no-scrollbar flex gap-2 px-4 py-2" id="categorySlider">
     <button class="bg-warm-taupe text-white text-xs px-4 py-1.5 rounded-full whitespace-nowrap shadow-sm">全部商品</button>
   </div>
 
+  <!-- 商品網格 -->
   <div class="grid grid-cols-2 gap-3 px-4 py-3" id="productGrid">
-    <div class="col-span-2 text-center py-12 text-xs text-stone-400">正在極速讀取中...</div>
+    <div class="col-span-2 text-center py-12 text-xs text-stone-400">正在加載商品...</div>
   </div>
 
+  <!-- 下單彈窗 Modal -->
   <div id="orderModal" class="fixed inset-0 bg-black/40 backdrop-blur-[2px] hidden z-50 items-end sm:items-center justify-center p-0">
     <div class="bg-white w-full sm:max-w-md rounded-t-2xl sm:rounded-2xl p-5 shadow-xl max-h-[90vh] overflow-y-auto space-y-4">
       <div class="flex justify-between items-start">
@@ -94,8 +98,9 @@
           <div id="sizeContainer" class="flex flex-wrap gap-2"></div>
         </div>
         
+        <!-- 預計取貨時間（連動試算表公告設定 K 欄） -->
         <div>
-          <label class="text-[11px] font-bold text-stone-500 block mb-1.5">⏱️ 預計取貨時間 (必填)</label>
+          <label class="text-[11px] font-bold text-stone-500 block mb-1.5">『預計取貨時間 』(必填)</label>
           <select id="pickupTimeSelect" class="w-full text-xs p-2.5 border border-border-soft rounded-lg bg-stone-50 text-carbon-black font-medium"></select>
         </div>
 
@@ -117,9 +122,9 @@
         <div class="flex justify-between items-center bg-stone-50 p-2.5 rounded-lg border border-border-soft">
           <span class="text-xs text-stone-500">購買數量</span>
           <div class="flex items-center gap-3">
-            <button onclick="changeQty(-1)" class="w-7 h-7 bg-white rounded border flex items-center justify-center text-sm font-bold shadow-sm">-</button>
+            <button onclick="changeQty(-1)" class="w-7 h-7 bg-white rounded border flex items-center justify-center text-sm font-bold">-</button>
             <span id="orderQty" class="text-xs font-bold w-6 text-center">1</span>
-            <button onclick="changeQty(1)" class="w-7 h-7 bg-white rounded border flex items-center justify-center text-sm font-bold shadow-sm">+</button>
+            <button onclick="changeQty(1)" class="w-7 h-7 bg-white rounded border flex items-center justify-center text-sm font-bold">+</button>
           </div>
         </div>
       </div>
@@ -128,14 +133,16 @@
     </div>
   </div>
 
-  <div class="mx-4 my-6 bg-stone-100 border border-stone-200 rounded-xl p-4 text-center space-y-1.5 shadow-inner">
-    <div class="text-xs font-bold text-stone-700">📍 伊利小編購 店面資訊</div>
-    <div class="text-xs text-stone-600">營業時間：平日 16:00 - 20:00</div>
-    <a href="https://share.google/WVzvnfsiIDpCLF28i" target="_blank" class="inline-block text-xs text-blue-600 underline font-medium hover:text-blue-800">
+  <!-- 地點與營業時間資訊（與店名同色調溫柔碳黑 #3A3530，極緻高階感） -->
+  <div class="mx-4 my-6 bg-white/60 border border-border-soft rounded-xl p-4 text-center space-y-1.5 shadow-sm">
+    <div class="text-xs font-bold text-carbon-black">📍 伊利小編購 店面資訊</div>
+    <div class="text-xs text-carbon-black">營業時間：平日 16:00 - 20:00</div>
+    <a href="https://share.google/WVzvnfsiIDpCLF28i" target="_blank" class="inline-block text-xs text-carbon-black underline font-medium hover:opacity-80 transition-opacity">
       地點：八德國小斜對面貨櫃市集 (點擊導航)
     </a>
   </div>
 
+  <!-- 底部 Sibyl 版權聲明 -->
   <div class="w-full text-center py-6 border-t border-border-soft/60 mt-6">
     <a href="https://www.heysibyl.com/" target="_blank" class="text-sibyl-gold text-[10px] tracking-widest font-light hover:opacity-80 transition-opacity">
       Designed by Sibyl | 數位管家
@@ -143,23 +150,32 @@
   </div>
 
   <script>
+    // ⚠️【核心提醒】請把這裡換成您點擊 Apps Script 部署後產生的 exec 網址！
+    let GAS_API_URL = "https://script.google.com/macros/s/AKfycbwkq-c-eE39XF9Vsoke-sBg46NAegrYkVihaEcn8EQF1rC6fTZEw2bzKrCnMXyfkxApdg/exec"; 
     let storeProducts = [];
     let selectedColor = ""; let selectedSize = "";
     let currentActiveProduct = null;
 
     window.onload = function() {
-      if (typeof google !== 'undefined') {
-        google.script.run.withSuccessHandler(initStoreUI).getStoreData();
-      } else {
-        alert("⚠️ 偵測到環境非 Google 試算表內網。請確認：1. 已在 GAS 點擊「部署」 2. 試算表共享權限已開放「知道連結的任何人均可檢視」");
-      }
+      callBackend({ method: "getStoreData" }, initStoreUI);
     };
 
-    function initStoreUI(data) {
-      if (!data || !data.success) {
-        alert("❌ 無法讀取雲端試算表設定，請確認試算表 ID 與分頁名稱是否正確！");
-        return;
+    function callBackend(payload, callback) {
+      if (typeof google !== 'undefined' && google.script && google.script.run) {
+        // 如果在 GAS 內部環境
+        if(payload.method === "getStoreData") google.script.run.withSuccessHandler(callback).getStoreData();
+        if(payload.method === "searchProducts") google.script.run.withSuccessHandler(callback).searchProducts(payload.keyword);
+        if(payload.method === "queryOrder") google.script.run.withSuccessHandler(function(res){ callback({success:true, html:res}) }).queryOrder(payload.phone);
+        if(payload.method === "submitNewOrder") google.script.run.withSuccessHandler(callback).submitNewOrder(payload.payload);
+      } else {
+        // 核心修正：如果是外部（GitHub Pages），自動走安全 POST 跨網域存取
+        fetch(GAS_API_URL, { method: "POST", body: JSON.stringify(payload) })
+          .then(r => r.json()).then(callback).catch(e => console.error("連線異常:", e));
       }
+    }
+
+    function initStoreUI(data) {
+      if (!data || !data.success) return;
       const c = data.config;
       document.getElementById('announcementText').innerText = c.announcement;
 
@@ -172,7 +188,7 @@
       const slider = document.getElementById('categorySlider');
       slider.innerHTML = `<button onclick="filterCategory('all')" class="bg-warm-taupe text-white text-xs px-4 py-1.5 rounded-full whitespace-nowrap shadow-sm">全部商品</button>`;
       data.majorCategories.forEach(cat => {
-        slider.innerHTML += `<button onclick="filterCategory('${cat}')" class="bg-white border border-border-soft text-carbon-black text-xs px-4 py-1.5 rounded-full whitespace-nowrap shadow-sm hover:bg-stone-100">${cat}</button>`;
+        slider.innerHTML += `<button onclick="filterCategory('${cat}')" class="bg-white border border-border-soft text-carbon-black text-xs px-4 py-1.5 rounded-full whitespace-nowrap hover:bg-stone-100">${cat}</button>`;
       });
 
       storeProducts = data.products || [];
@@ -183,7 +199,7 @@
       const grid = document.getElementById('productGrid'); grid.innerHTML = '';
       const activeProds = prods.filter(p => p.status !== '下架');
       if(activeProds.length === 0) {
-        grid.innerHTML = '<div class="col-span-2 text-center py-12 text-xs text-stone-400">目前暫無上架商品項目</div>'; return;
+        grid.innerHTML = '<div class="col-span-2 text-center py-12 text-xs text-stone-400">目前暫無商品架上項目</div>'; return;
       }
       activeProds.forEach((p, idx) => {
         let finalImg = p.imgUrl ? p.imgUrl : 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=400';
@@ -197,7 +213,6 @@
               <h2 class="text-xs font-medium text-carbon-black line-clamp-2 leading-relaxed h-8">${p.name}</h2>
               <div class="flex items-baseline gap-1.5 mt-2">
                 <span class="text-xs font-bold text-warm-taupe">NT$${p.price}</span>
-                ${p.oldPrice ? `<span class="text-[10px] text-stone-400 line-through">NT$${p.oldPrice}</span>` : ''}
               </div>
             </div>
           </div>
@@ -249,8 +264,7 @@
 
     function changeQty(amt) {
       let q = parseInt(document.getElementById('orderQty').innerText) + amt;
-      if (q < 1) q = 1;
-      document.getElementById('orderQty').innerText = q;
+      if (q < 1) q = 1; document.getElementById('orderQty').innerText = q;
     }
 
     function submitOrder() {
@@ -260,35 +274,39 @@
       const time = document.getElementById('pickupTimeSelect').value;
       const qty = parseInt(document.getElementById('orderQty').innerText);
 
-      if(!name || !phone) { alert("姓名與手機號碼為必填欄位！"); return; }
+      if(!name || !phone) { alert("請填寫姓名與電話！"); return; }
       
       const payload = {
         orderId: "EL-" + Math.floor(100000 + Math.random() * 900000),
-        lineName: line || "無填寫", custName: name, phone: phone,
+        lineName: line || "無", custName: name, phone: phone,
         sku: currentActiveProduct.sku, name: currentActiveProduct.name,
         color: selectedColor || "預設款式", size: selectedSize || "均碼",
         qty: qty, price: currentActiveProduct.price, total: currentActiveProduct.price * qty,
         pickupTime: time
       };
 
-      alert("⏳ 正在傳輸資料至雲端資料庫...");
-      google.script.run.withSuccessHandler(function(res) {
+      alert("⏳ 正在將預約資料同步儲存至試算表...");
+      callBackend({ method: "submitNewOrder", payload: payload }, function(res) {
         alert(res.message); if(res.success) closeOrderModal();
-      }).submitNewOrder(payload);
+      });
     }
 
     function closeOrderModal() { document.getElementById('orderModal').classList.add('hidden'); }
     function toggleQueryPanel() { document.getElementById('queryPanel').classList.toggle('hidden'); }
     function fetchOrderProgress() {
       const phone = document.getElementById('orderQueryInput').value;
-      const resDiv = document.getElementById('queryResult');
-      if(!phone) { resDiv.innerHTML = "請輸入號碼。"; return; }
-      resDiv.innerHTML = "<span class='text-xs text-stone-400 animate-pulse'>正在查詢中...</span>";
-      google.script.run.withSuccessHandler(function(res) { resDiv.innerHTML = res; }).queryOrder(phone);
+      if(!phone) return;
+      callBackend({ method: "queryOrder", phone: phone }, function(res) {
+        document.getElementById('queryResult').innerHTML = res.html;
+      });
     }
     function filterCategory(cat) {
       if(cat === 'all') { renderProductGrid(storeProducts); }
       else { renderProductGrid(storeProducts.filter(p => p.major === cat)); }
+    }
+    function searchProducts() {
+      const kw = document.getElementById('searchInput').value;
+      callBackend({ method: "searchProducts", keyword: kw }, function(res){ renderProductGrid(res.products); });
     }
   </script>
 </body>
