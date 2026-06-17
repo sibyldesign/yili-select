@@ -29,7 +29,7 @@
     <div class="flex flex-col sm:flex-row justify-between items-center border-b border-border-soft pb-4 mb-6">
       <div class="text-center sm:text-left">
         <h1 class="text-2xl font-bold tracking-wider text-text-dark">伊利小編購 智慧管理後台</h1>
-        <p class="text-xs text-primary-taupe mt-1">2026 行動化公版 (無 JSON 規格防破圖設計)</p>
+        <p class="text-xs text-primary-taupe mt-1">2026 行動化版 (自動解鎖連線晶片防護)</p>
       </div>
       <a id="viewStoreLink" href="#" target="_blank" class="mt-3 sm:mt-0 bg-primary-taupe text-white text-xs font-medium px-4 py-2.5 rounded-lg shadow-sm hover:bg-taupe-dark transition-all">🌐 前往官方前台行動商城</a>
     </div>
@@ -39,8 +39,9 @@
       <button onclick="switchTab('orderTab')" id="btn-orderTab" class="tab-btn px-5 py-3 text-sm font-medium border-b-2 border-transparent text-stone-400 hover:text-text-dark">即時訂單看板</button>
     </div>
 
+    <!-- 商品快速上架面板 -->
     <div id="uploadTab" class="tab-content bg-white border border-border-soft rounded-xl p-5 sm:p-6 shadow-sm space-y-4">
-      <h2 class="text-sm font-bold border-b border-border-soft pb-2 text-stone-700">✍️ 上架新商品 (品名、特價為必填)</h2>
+      <h2 class="text-sm font-bold border-b border-border-soft pb-2 text-stone-700">✍️ 上架新商品</h2>
       
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div>
@@ -49,7 +50,7 @@
         </div>
         <div class="sm:col-span-2">
           <label class="text-xs font-semibold text-stone-600 block mb-1">商品品名 <span class="text-red-500">(必填)</span></label>
-          <input type="text" id="pName" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50 outline-none" placeholder="例如：韓系休閒口袋寬鬆上衣">
+          <input type="text" id="pName" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50 outline-none" placeholder="例如：親膚不刺肌顯瘦毛衣">
         </div>
       </div>
 
@@ -77,11 +78,11 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label class="text-xs font-semibold text-stone-600 block mb-1">顏色清單 (用英文或中文逗號隔開)</label>
+          <label class="text-xs font-semibold text-stone-600 block mb-1">顏色清單</label>
           <input type="text" id="pColors" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="例如：黑色,白色,卡其">
         </div>
         <div>
-          <label class="text-xs font-semibold text-stone-600 block mb-1">尺碼清單 (用英文或中文逗號隔開)</label>
+          <label class="text-xs font-semibold text-stone-600 block mb-1">尺碼清單</label>
           <input type="text" id="pSizes" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="例如：M,L,均碼">
         </div>
       </div>
@@ -96,18 +97,18 @@
           <input type="number" id="pPrice" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="例如：390">
         </div>
         <div>
-          <label class="text-xs font-semibold text-stone-600 block mb-1">加購品名稱 (選填)</label>
-          <input type="text" id="pAddonName" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="例如：隨身小鏡子">
+          <label class="text-xs font-semibold text-stone-600 block mb-1">加購品名稱</label>
+          <input type="text" id="pAddonName" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="選填">
         </div>
         <div>
-          <label class="text-xs font-semibold text-stone-600 block mb-1">加購品加價 (選填)</label>
-          <input type="number" id="pAddonPrice" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="例如：49">
+          <label class="text-xs font-semibold text-stone-600 block mb-1">加購品加價</label>
+          <input type="number" id="pAddonPrice" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50" placeholder="選填">
         </div>
       </div>
 
       <div>
-        <label class="text-xs font-semibold text-stone-600 block mb-1">圖片網址欄位 (支援多張圖片空格格開)</label>
-        <textarea id="pImgs" rows="3" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50 outline-none" placeholder="輸入圖片網址..."></textarea>
+        <label class="text-xs font-semibold text-stone-600 block mb-1">圖片網址欄位 (空格隔開多圖加速功能)</label>
+        <textarea id="pImgs" rows="3" class="w-full text-sm p-2.5 border border-border-soft rounded-lg bg-stone-50 outline-none" placeholder="網址..."></textarea>
       </div>
 
       <div>
@@ -118,6 +119,7 @@
       <button onclick="publishProduct()" class="w-full bg-primary-taupe text-white font-medium text-sm py-3 rounded-lg hover:bg-taupe-dark transition-all">一鍵即時同步商品網頁上架</button>
     </div>
 
+    <!-- 訂單管理看板 -->
     <div id="orderTab" class="tab-content bg-white border border-border-soft rounded-xl p-5 shadow-sm space-y-4 hidden">
       <div class="flex justify-between items-center flex-wrap gap-2">
         <h2 class="text-sm font-bold text-stone-700">📋 即時預約取貨訂單看板</h2>
@@ -143,6 +145,7 @@
       </div>
     </div>
 
+    <!-- 底部 Sibyl 版權 -->
     <div class="w-full text-center py-8 border-t border-border-soft/60 mt-12">
       <a href="https://www.heysibyl.com/" target="_blank" class="text-sibyl-gold text-[10px] tracking-widest font-light hover:opacity-80 transition-opacity">
         Designed by Sibyl | 數位管家
@@ -152,20 +155,30 @@
   </div>
 
   <script>
+    // ⚠️【核心提醒】請把這裡換成您點擊 Apps Script 部署後產生的 exec 網址！
+    let GAS_API_URL = "https://script.google.com/macros/s/AKfycbwkq-c-eE39XF9Vsoke-sBg46NAegrYkVihaEcn8EQF1rC6fTZEw2bzKrCnMXyfkxApdg/exec";
+
     window.onload = function() {
-      if (typeof google !== 'undefined') {
-        google.script.run.withSuccessHandler(function(data) {
-          if (!data || !data.success) {
-            alert("❌ 連線錯誤：請檢查試算表 ID 與共用檢視權限！"); return;
-          }
-          const majEl = document.getElementById('pMajorSelect');
-          const subEl = document.getElementById('pSubSelect');
-          majEl.innerHTML = ""; subEl.innerHTML = "";
-          data.majorCategories.forEach(c => { let o = document.createElement('option'); o.value=o.text=c; majEl.appendChild(o); });
-          data.subCategories.forEach(c => { let o = document.createElement('option'); o.value=o.text=c; subEl.appendChild(o); });
-        }).getStoreData();
-      }
+      callAdminBackend({ method: "getStoreData" }, function(data){
+        if (!data || !data.success) return;
+        const majEl = document.getElementById('pMajorSelect');
+        const subEl = document.getElementById('pSubSelect');
+        majEl.innerHTML = ""; subEl.innerHTML = "";
+        data.majorCategories.forEach(c => { let o = document.createElement('option'); o.value=o.text=c; majEl.appendChild(o); });
+        data.subCategories.forEach(c => { let o = document.createElement('option'); o.value=o.text=c; subEl.appendChild(o); });
+      });
     };
+
+    function callAdminBackend(payload, callback) {
+      if (typeof google !== 'undefined' && google.script && google.script.run) {
+        if(payload.method === "getStoreData") google.script.run.withSuccessHandler(callback).getStoreData();
+        if(payload.method === "addNewProduct") google.script.run.withSuccessHandler(callback).addNewProduct(payload.product);
+        if(payload.method === "getAllOrders") google.script.run.withSuccessHandler(callback).getAllOrders();
+      } else {
+        fetch(GAS_API_URL, { method: "POST", body: JSON.stringify(payload) })
+          .then(r => r.json()).then(callback);
+      }
+    }
 
     function switchTab(id) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
@@ -192,18 +205,18 @@
         addonName: document.getElementById('pAddonName').value.trim(), addonPrice: Number(document.getElementById('pAddonPrice').value || 0)
       };
 
-      google.script.run.withSuccessHandler(function(res) {
+      callAdminBackend({ method: "addNewProduct", product: pObj }, function(res){
         alert(res.message);
         if(res.success) {
           document.getElementById('pName').value = ""; document.getElementById('pPrice').value = "";
         }
-      }).addNewProduct(pObj);
+      });
     }
 
     function loadAllOrders() {
       const tbody = document.getElementById('orderTableBody');
-      tbody.innerHTML = "<tr><td colspan='7' class='text-center p-4 text-stone-400 animate-pulse'>資料同步讀取中...</td></tr>";
-      google.script.run.withSuccessHandler(function(res) {
+      tbody.innerHTML = "<tr><td colspan='7' class='text-center p-4 text-stone-400 animate-pulse'>資料撈取中...</td></tr>";
+      callAdminBackend({ method: "getAllOrders" }, function(res){
         if(!res.success || res.orders.length === 0) {
           tbody.innerHTML = "<tr><td colspan='7' class='text-center p-4 text-stone-400'>目前無任何訂單紀錄。</td></tr>"; return;
         }
@@ -221,7 +234,7 @@
             </tr>
           `;
         });
-      }).getAllOrders();
+      });
     }
   </script>
 </body>
